@@ -1,4 +1,5 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://punkapi.com/documentation/v2"><img src="https://i.ibb.co/s398GhK/brewdog-logo.png" alt="brewdog-logo"></a>
+</p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -81,7 +82,7 @@ DB - using DBngin for local development with MySQL 8.0.25 and TablePlus for the 
 Set up your own local DB and update the .env file with the correct DB details - DB_DATABASE, DB_USERNAME, DB_PASSWORD
 npm install to install the node modules
 
-**^ this can be dockerised, if time will do this** 
+**^ this can be dockerised, if time will do this** docker-compose up --build -d to run the application and docker-compose down to stop the containers
 
 Configure the API so that Vite can access it, overriding the application so that we can see a vue component on the front end working correctly
 Vite is a modern frontend build tool that provides an extremely fast development environment and bundles your code for production. It's a part of the Vue 3 ecosystem and is used to build Vue 3 applications.
