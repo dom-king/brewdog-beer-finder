@@ -83,7 +83,7 @@ Set this up with Laravel Breeze to scaffold the application for the front end an
 CODE STANDARDS
 
 - PHP - PSR-12 - PHP_CodeSniffer - vendor/bin/phpcs to run and vendor/bin/phpcbf to fix errors
-- JS - Airbnb code standards - npm run lint - composer run lint (FIX ERRORS)
+- JS - Airbnb code standards - npm run lint - composer run lint 
 
 Set up Notes 
 
