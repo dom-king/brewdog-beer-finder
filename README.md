@@ -75,12 +75,18 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ####
 
-SETUP NOTES 
+Tech Stack 
+
+Set this up with Laravel Breeze to scaffold the application for the front end and back end - Authentication, Tailwind CSS, Vue 3, Vite, Laravel Sanctum
+
+Set up Notes 
 
 php artisan serve to run the application and npm run dev to run the front end
 DB - using DBngin for local development with MySQL 8.0.25 and TablePlus for the GUI
 Set up your own local DB and update the .env file with the correct DB details - DB_DATABASE, DB_USERNAME, DB_PASSWORD
 npm install to install the node modules
+Run tests with vendor/bin/pest -  ./vendor/bin/pest
+
 
 **^ this can be dockerised, if time will do this** docker-compose up --build -d to run the application and docker-compose down to stop the containers
 
