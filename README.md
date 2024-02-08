@@ -86,24 +86,39 @@ CODE STANDARDS
 - JS - Airbnb code standards - npm run lint - composer run lint 
 - TESTS - Pest Run tests -  ./vendor/bin/pest
 
-Set up Notes 
+Set up Notes/Tackling the task 
 
 php artisan serve to run the application and npm run dev to run the front end
 DB - using DBngin for local development with MySQL 8.0.25 and TablePlus for the GUI
 Set up your own local DB and update the .env file with the correct DB details - DB_DATABASE, DB_USERNAME, DB_PASSWORD
 npm install to install the node modules
 
-
 **^ this can be dockerised, if time will do this** docker-compose up --build -d to run the application and docker-compose down to stop the containers
 
 Configure the API so that Vite can access it, overriding the application so that we can see a vue component on the front end working correctly
 Vite is a modern frontend build tool that provides an extremely fast development environment and bundles your code for production. It's a part of the Vue 3 ecosystem and is used to build Vue 3 applications.
 
+First to tackle the login authentication with unit tests - PHP side so we have an application to work with (Laravel Blast for speed - why re-invent the wheel here)
+We can now begin to investigate the API and how it responds, and how we can use it to build the scaffold.
+ 
 
-First to tackle the login authentication with sanctum with unit tests - PHP side so we have an application to work with 
+Create the model and migration for the beers - ideally we want to split beers up and take what we need with relationships
+php artisan make:model Beers -m etc.
 
-We can now begin to investigate the API and how it works, and how we can use it to build the scaffold.
-Install guzzle and pest for testing - composer require guzzlehttp/guzzle pestphp/pest --dev 
+Beers
+Ingredients
+Volume
+Method
+Food Pairing
+
+
+
+
+
+API - https://punkapi.com/documentation/v2
+
+Install guzzle or axios and pest for testing - composer require guzzlehttp/guzzle pestphp/pest --dev
+
 Then we can do some HTTP tests - check we can access the API and get the correct response
 Then we can do some feature tests - check we can access the API and get the correct response
 Then we add the models and test these - check we can get the correct data back and store it
