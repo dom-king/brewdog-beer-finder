@@ -83,7 +83,7 @@ Set this up with Laravel Breeze to scaffold the application for the front end an
 CODE STANDARDS
 
 - PHP - PSR-12 - PHP_CodeSniffer - vendor/bin/phpcs to run and vendor/bin/phpcbf to fix errors
-- JS - Airbnb code standards - npm run lint - composer run lint 
+- JS - Airbnb code standards - npm run lint 
 - TESTS - Pest Run tests -  php artisan test
 
 Set up Notes/Tackling the task 
@@ -114,7 +114,11 @@ php artisan migrate:refresh --seed to refresh the database and seed the data
 Set up this for testing so I can check the data stores correctly 
 
 
-
+**TODO: 
+API Integration 
+Fix the models and saving data
+Unit tests for the models and API controllers
+Front end - search feature, display the data, error handling, filtering, pagination**
 
 # Brewdog Beer Finder
 API - https://punkapi.com/documentation/v2

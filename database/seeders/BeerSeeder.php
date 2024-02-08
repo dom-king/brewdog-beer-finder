@@ -12,7 +12,7 @@ class BeerSeeder extends Seeder
      *
      * @return void
      */
-    public function run() : void
+    public function run(): void
     {
         Beer::factory()->count(5)->create();
     }

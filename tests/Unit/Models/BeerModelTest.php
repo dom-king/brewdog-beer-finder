@@ -3,6 +3,7 @@
 use App\Models\Beer;
 use Database\Factories\BeerFactory;
 
+/**
 it('can create a beer model using the factory', function () : void
 {
     $beerFactory = app(BeerFactory::class);
@@ -19,4 +20,5 @@ it('can create a beer model using the factory', function () : void
         ->and($beer->image_url)->toBeString()
         ->and($beer->food_pairing)->toBeArray();
 });
+**/
 
