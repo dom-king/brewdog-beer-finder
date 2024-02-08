@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 
 defineProps({
     canLogin: Boolean,
@@ -41,7 +42,9 @@ defineProps({
 
         <div class="max-w-7xl mx-auto p-6 lg:p-8">
             <div class="flex justify-center">
-                <a href="https://github.com/dom-king/brewdog-beer-finder"><img src="https://i.ibb.co/G0Vv9dj/BEER-removebg-preview.png" alt="BEER-removebg-preview"></a>
+                <Link href="/">
+                    <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
+                </Link>
             </div>
 
             <div class="mt-16">
