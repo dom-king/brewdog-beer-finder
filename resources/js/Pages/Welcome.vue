@@ -41,7 +41,8 @@ defineProps({
 
         <div class="max-w-7xl mx-auto p-6 lg:p-8">
             <div class="flex justify-center">
-                <a href="https://imgbb.com/"><img src="https://i.ibb.co/G0Vv9dj/BEER-removebg-preview.png" alt="BEER-removebg-preview" border="0"></a>            </div>
+                <a href="https://github.com/dom-king/brewdog-beer-finder"><img src="https://i.ibb.co/G0Vv9dj/BEER-removebg-preview.png" alt="BEER-removebg-preview"></a>
+            </div>
 
             <div class="mt-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

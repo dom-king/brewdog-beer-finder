@@ -1,4 +1,5 @@
-<p align="center"><a href="https://punkapi.com/documentation/v2"><img src="https://i.ibb.co/s398GhK/brewdog-logo.png" alt="brewdog-logo"></a>
+<p align="center">
+<a href="https://github.com/dom-king/brewdog-beer-finder"><img src="https://i.ibb.co/G0Vv9dj/BEER-removebg-preview.png" alt="BEER-removebg-preview"></a>
 </p>
 
 <p align="center">
