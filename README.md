@@ -100,7 +100,7 @@ Vite is a modern frontend build tool that provides an extremely fast development
 
 First to tackle the login authentication with unit tests - PHP side so we have an application to work with (Laravel Blast for speed - why re-invent the wheel here)
 We can now begin to investigate the API and how it responds, and how we can use it to build the scaffold.
- 
+
 
 Create the model and migration for the beers - ideally we want to split beers up and take what we need with relationships
 php artisan make:model Beers -m etc.
@@ -115,7 +115,7 @@ Set up this for testing so I can check the data stores correctly
 
 
 **TODO: 
-API Integration 
+API Integration - Add a service and a config and a controller to handle the API requests
 Fix the models and saving data
 Unit tests for the models and API controllers
 Front end - search feature, display the data, error handling, filtering, pagination**
@@ -123,11 +123,20 @@ Front end - search feature, display the data, error handling, filtering, paginat
 # Brewdog Beer Finder
 API - https://punkapi.com/documentation/v2
 
+Integrated the API with a punkapi config, a service and a controller to handle the API requests
+Set up feature tests to check unauth and authorised access to the API - also created a stub of data to crosscheck the response
+
+
+
+
+
+
 Install guzzle or axios and pest for testing - composer require guzzlehttp/guzzle pestphp/pest --dev
 
-Then we can do some HTTP tests - check we can access the API and get the correct response
-Then we can do some feature tests - check we can access the API and get the correct response
-Then we add the models and test these - check we can get the correct data back and store it
+
+
+
+
 Bonus would be to create a filtering design pattern to filter these by ID or Name on the API endpoint
 
 Front end: 

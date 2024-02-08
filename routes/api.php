@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PunkApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +20,6 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
 
-    // Other Sanctum-protected routes go here
+    Route::get('/beers', [PunkApiController::class, 'index'])->name('beers.index');
+    Route::get('/beers/{id}', [PunkApiController::class, 'show'])->name('beers.show');
 });
