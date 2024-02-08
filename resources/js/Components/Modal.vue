@@ -96,3 +96,9 @@ const maxWidthClass = computed(() => {
         </transition>
     </teleport>
 </template>
+
+<script>
+export default {
+    name: 'ModalComponent',
+};
+</script>

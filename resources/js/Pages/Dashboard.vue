@@ -20,3 +20,9 @@ import { Head } from '@inertiajs/vue3';
         </div>
     </AuthenticatedLayout>
 </template>
+
+<script>
+export default {
+    name: 'DashboardPage',
+};
+</script>

@@ -102,3 +102,9 @@ const submit = () => {
         </form>
     </GuestLayout>
 </template>
+
+<script>
+export default {
+    name: 'RegisterPage',
+};
+</script>

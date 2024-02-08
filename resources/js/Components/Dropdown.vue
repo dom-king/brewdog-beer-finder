@@ -72,3 +72,9 @@ const open = ref(false);
         </transition>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'DropdownComponent',
+};
+</script>

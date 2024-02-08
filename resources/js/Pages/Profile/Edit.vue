@@ -40,3 +40,9 @@ defineProps({
         </div>
     </AuthenticatedLayout>
 </template>
+
+<script>
+export default {
+    name: 'EditProfile',
+};
+</script>

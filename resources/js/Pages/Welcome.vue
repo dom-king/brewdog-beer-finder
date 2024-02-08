@@ -16,35 +16,51 @@ defineProps({
     <div
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white"
     >
-        <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-            <Link
-                v-if="$page.props.auth.user"
-                :href="route('dashboard')"
-                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                >Dashboard</Link
-            >
+<!--        <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">-->
+<!--            <Link-->
+<!--                v-if="$page.props.auth.user"-->
+<!--                :href="route('dashboard')"-->
+<!--                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"-->
+<!--                >Dashboard</Link-->
+<!--            >-->
 
-            <template v-else>
-                <Link
-                    :href="route('login')"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    >Log in</Link
-                >
+<!--            <template v-else>-->
+<!--                <Link-->
+<!--                    :href="route('login')"-->
+<!--                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"-->
+<!--                    >Log in</Link-->
+<!--                >-->
 
-                <Link
-                    v-if="canRegister"
-                    :href="route('register')"
-                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    >Register</Link
-                >
-            </template>
-        </div>
+<!--                <Link-->
+<!--                    v-if="canRegister"-->
+<!--                    :href="route('register')"-->
+<!--                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"-->
+<!--                    >Register</Link-->
+<!--                >-->
+<!--            </template>-->
+<!--        </div>-->
 
         <div class="max-w-7xl mx-auto p-6 lg:p-8">
-            <div class="flex justify-center">
-                <Link href="/">
-                    <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
-                </Link>
+            <div class="flex flex-col items-center">
+                <div class="flex justify-center">
+                    <Link href="/">
+                        <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
+                    </Link>
+                </div>
+
+                <!-- Centered and spaced links -->
+                <div class="flex space-x-4 mt-4">
+                    <Link
+                        :href="route('login')"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                    >LOGIN</Link>
+
+                    <Link
+                        v-if="canRegister"
+                        :href="route('register')"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                    >REGISTER</Link>
+                </div>
             </div>
 
             <div class="mt-16">
@@ -71,7 +87,7 @@ defineProps({
                                 </svg>
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Technical Stack Documentation</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Technical Stack</h2>
 
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                                 Laravel has wonderful documentation covering every aspect of the framework. Whether you
@@ -79,24 +95,9 @@ defineProps({
                                 documentation from beginning to end.
                             </p>
                         </div>
-
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                            />
-                        </svg>
                     </div>
 
-                    <a
-                        href="https://laracasts.com"
+                    <div
                         class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500"
                     >
                         <div>
@@ -118,7 +119,7 @@ defineProps({
                                 </svg>
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">PunkAPI V2 Documentation</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">PunkAPI V2 APIo</h2>
 
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                                 Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript
@@ -126,21 +127,7 @@ defineProps({
                                 skills in the process.
                             </p>
                         </div>
-
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                            />
-                        </svg>
-                    </a>
+                    </div>
                 </div>
             </div>
 
@@ -187,3 +174,9 @@ defineProps({
     }
 }
 </style>
+
+<script>
+export default {
+    name: 'WelcomePage',
+};
+</script>

@@ -80,6 +80,11 @@ Tech Stack
 
 Set this up with Laravel Breeze to scaffold the application for the front end and back end - Authentication, Tailwind CSS, Vue 3, Vite, Laravel Sanctum
 
+CODE STANDARDS
+
+- PHP - PSR-12 - PHP_CodeSniffer - vendor/bin/phpcs to run and vendor/bin/phpcbf to fix errors
+- JS - Airbnb code standards - npm run lint - composer run lint (FIX ERRORS)
+
 Set up Notes 
 
 php artisan serve to run the application and npm run dev to run the front end
