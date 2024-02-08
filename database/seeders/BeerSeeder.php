@@ -2,19 +2,18 @@
 
 namespace Database\Seeders;
 
+use App\Models\Beer;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class BeerSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run() : void
     {
-        $this->call([
-            BeerSeeder::class,
-        ]);
+        Beer::factory()->count(5)->create();
     }
 }

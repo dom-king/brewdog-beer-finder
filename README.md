@@ -106,12 +106,9 @@ Create the model and migration for the beers - ideally we want to split beers up
 php artisan make:model Beers -m etc.
 
 Beers
-Ingredients
 Volume
-Method
 Food Pairing
-
-
+(of course can separate concerns but for this task we can keep it simple)
 
 
 
