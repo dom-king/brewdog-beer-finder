@@ -84,7 +84,7 @@ CODE STANDARDS
 
 - PHP - PSR-12 - PHP_CodeSniffer - vendor/bin/phpcs to run and vendor/bin/phpcbf to fix errors
 - JS - Airbnb code standards - npm run lint - composer run lint 
-- TESTS - Pest Run tests -  ./vendor/bin/pest
+- TESTS - Pest Run tests -  php artisan test
 
 Set up Notes/Tackling the task 
 
@@ -105,13 +105,18 @@ We can now begin to investigate the API and how it responds, and how we can use 
 Create the model and migration for the beers - ideally we want to split beers up and take what we need with relationships
 php artisan make:model Beers -m etc.
 
+----- 
 Beers
-Volume
-Food Pairing
-(of course can separate concerns but for this task we can keep it simple)
+(of course can separate concerns for Volume and Food Pairing but for this task we can keep it simple)
+
+php artisan migrate 
+php artisan migrate:refresh --seed to refresh the database and seed the data
+Set up this for testing so I can check the data stores correctly 
 
 
 
+
+# Brewdog Beer Finder
 API - https://punkapi.com/documentation/v2
 
 Install guzzle or axios and pest for testing - composer require guzzlehttp/guzzle pestphp/pest --dev

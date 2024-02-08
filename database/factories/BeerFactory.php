@@ -14,15 +14,15 @@ class BeerFactory extends Factory
     public function definition() : array
     {
         return [
-            'id'   => $this->faker->uuid,
-            'name' => $this->faker->word,
-            'tagline' => $this->faker->sentence,
-            'first_brewed' => $this->faker->date('m/Y', '04/2007'),
-            'description' => $this->faker->paragraph,
-            'abv' => $this->faker->randomFloat(2, 0, 10),
-            'ibu' => $this->faker->randomFloat(2, 0, 100),
-            'image_url' => $this->faker->imageUrl(),
-            'food_pairing' => $this->faker->sentences(3),
+            'id' => fake()->uuid(),
+            'name' => fake()->sentence(),
+            'tagline'      => fake()->sentence(),
+            'first_brewed' => fake()->date('m/Y', '04/2007'),
+            'description'  => fake()->paragraph(),
+            'abv'          => fake()->randomFloat(2, 0, 10),
+            'ibu'          => fake()->randomFloat(2, 0, 100),
+            'image_url'    => fake()->imageUrl(),
+            'food_pairing' => fake()->sentences(3),
         ];
     }
 }
