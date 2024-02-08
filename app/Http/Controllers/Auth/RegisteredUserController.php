@@ -43,10 +43,20 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $this->createTokenForUser($user);
+
         event(new Registered($user));
 
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
+    }
+
+    /**
+     * Create a personal access token for the user.
+     */
+    protected function createTokenForUser($user)
+    {
+        $user->createToken('api-access');
     }
 }

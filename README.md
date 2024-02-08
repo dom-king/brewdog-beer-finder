@@ -100,6 +100,7 @@ Vite is a modern frontend build tool that provides an extremely fast development
 
 First to tackle the login authentication with unit tests - PHP side so we have an application to work with (Laravel Blast for speed - why re-invent the wheel here)
 We can now begin to investigate the API and how it responds, and how we can use it to build the scaffold.
+Updated the registration to take access tokens for sanctum against the user and store them in the database
 
 
 Create the model and migration for the beers - ideally we want to split beers up and take what we need with relationships
@@ -111,32 +112,26 @@ Beers
 
 php artisan migrate 
 php artisan migrate:refresh --seed to refresh the database and seed the data
-Set up this for testing so I can check the data stores correctly 
+Set up this for testing so I can check the data stores correctly
+
+# Brewdog Beer Finder
+API - https://punkapi.com/documentation/v2
+
+Integrated the API with a punkapi config, created a service and an API controller to handle the API requests
+Set up feature tests to check unauth and authorised access to the API to see it working 
+- also created a stub of data to crosscheck the response against the API response
 
 
-**TODO: 
+
+
+
+**TODO:
 API Integration - Add a service and a config and a controller to handle the API requests
 Fix the models and saving data
 Unit tests for the models and API controllers
 Front end - search feature, display the data, error handling, filtering, pagination**
 
-# Brewdog Beer Finder
-API - https://punkapi.com/documentation/v2
-
-Integrated the API with a punkapi config, a service and a controller to handle the API requests
-Set up feature tests to check unauth and authorised access to the API - also created a stub of data to crosscheck the response
-
-
-
-
-
-
 Install guzzle or axios and pest for testing - composer require guzzlehttp/guzzle pestphp/pest --dev
-
-
-
-
-
 Bonus would be to create a filtering design pattern to filter these by ID or Name on the API endpoint
 
 Front end: 
