@@ -6,6 +6,7 @@ use App\Enums\BeerFilter;
 use App\Services\PunkApiService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -26,13 +27,18 @@ class BeerController extends Controller
     /**
      * Get all beers
      *
-     * @return Response
+     * @return JsonResponse|Response
      */
-    public function index(): Response
+    public function index() : JsonResponse|Response
     {
-        return Inertia::render('Beers/Index', [
-            'beers' => $this->punkApiService->getBeers(),
-        ]);
+        try {
+            return Inertia::render('Beers/Index', [
+                'beers' => $this->punkApiService->getBeers(),
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Error fetching beers: ' . $e->getMessage());
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
     }
 
     /**

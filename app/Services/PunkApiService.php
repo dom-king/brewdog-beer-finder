@@ -16,6 +16,16 @@ class PunkApiService
     }
 
     /**
+     * Get the base URL.
+     *
+     * @return mixed
+     */
+    public function getBaseUrl() : mixed
+    {
+        return $this->baseUrl;
+    }
+
+    /**
      * Get all beers
      *
      * @return AnonymousResourceCollection

@@ -131,3 +131,14 @@ set up the front end to render the data from the API and display it
 - inertia and axios to handle the requests and the data being passed to the front end
 - refactored the code to make it more readable and maintainable
 - One page for faster performance and to keep it simple
+
+
+
+
+TODO 
+
+
+Models - relationships
+Tests - unit and feature
+Docs
+Dockerise

@@ -89,7 +89,6 @@ export default {
     },
     watch: {
         searchResults() {
-            // Reset currentPage to 1 whenever searchResults change
             this.currentPage = 1;
         },
     },
