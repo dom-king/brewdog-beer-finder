@@ -2,7 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head, Link} from '@inertiajs/vue3';
 import ApplicationLogo from "@/Components/ApplicationLogo.vue";
-import SearchBeers from "@/Components/BeerComponents/SearchBeers.vue";
+import SearchBeers from "@/Components/SearchBeers.vue";
 </script>
 
 <template>

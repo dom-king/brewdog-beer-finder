@@ -4,7 +4,7 @@
 
             <InputLabel for="filter" value="Select filter" class="block mb-2 text-white" />
 
-            <select v-model="selectedFilter" id="filter" class="w-full border p-2 mb-4">
+            <select v-model="selectedFilter" id="filter" class="bg-gray-700 text-white w-full border rounded-md p-2 mb-4">
                 <option v-for="filter in filters" :key="filter" :value="filter">{{ filter }}</option>
             </select>
 
@@ -18,7 +18,11 @@
 
             <SecondaryButton @click="search" class="w-full text-white mt-4 p-4 rounded-md">Search</SecondaryButton>
 
-            <div v-if="searching && searchResults.length === 0" class="text-white mt-4">
+            <div v-if="error" class="text-red-500 mt-6 text-center">
+                {{ error }}
+            </div>
+
+            <div v-if="(searching && searchResults !== null && searchResults.length < 1) || (!searching && searchResults === null)" class="text-white mt-4 text-center">
                 No results found.
             </div>
         </div>
@@ -47,11 +51,13 @@ export default {
             searchTerm: '',
             searchResults: [],
             searching: false,
+            error: null,
         };
     },
     methods: {
         async search() {
             try {
+                this.handleInputValidation();
                 const response = await axios.get('/api/search', {
                     params: {
                         filter: this.selectedFilter,
@@ -61,15 +67,25 @@ export default {
 
                 if (response && response.data && response.data.searchResults) {
                     this.searchResults = response.data.searchResults;
+                    this.searching = false;
                 } else {
-                    console.error('Invalid response format:', response);
+                    this.searchResults = [];
+                    this.searching = true;
                 }
             } catch (error) {
-                if (error.response) {
-                    console.error('Error searching for beers:', error.response.data);
-                } else {
-                    console.error('Error searching for beers:', error.message);
-                }
+                this.searchResults = [];
+                this.searching = true;
+                this.error = 'Error searching for beers';
+                console.error('Error searching for beers:', error);
+            }
+        },
+        handleInputValidation() {
+            if (this.selectedFilter === 'Name' && !/^.*$/.test(this.searchTerm)) {
+                this.error = 'Invalid characters for Name search';
+            } else if (this.selectedFilter === 'ID' && !/^\d+$/.test(this.searchTerm)) {
+                this.error = 'Invalid characters for ID search';
+            } else {
+                this.error = null;
             }
         },
     },
