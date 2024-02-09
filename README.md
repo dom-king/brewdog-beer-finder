@@ -133,12 +133,14 @@ set up the front end to render the data from the API and display it
 - One page for faster performance and to keep it simple
 
 
-
-
 TODO 
+--------- 
+
+Front end work (random?)
+Models and seeders - beer/food relationships
+Docker - set up the application to run in a container
+Docs and clean up
 
 
-Models - relationships
 Tests - unit and feature
-Docs
-Dockerise
+service, controller, model, front end tests

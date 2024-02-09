@@ -5,16 +5,15 @@
         </div>
 
         <div>
-            <h3 class="text-lg font-bold text-white">{{ result.name }}</h3>
-            <ul class="list-disc list-inside text-gray-400">
-                <li><span class="font-bold">Tagline:</span> {{ result.tagline }}</li>
-                <li><span class="font-bold">ABV:</span> {{ result.abv }}</li>
-                <li><span class="font-bold">Description:</span> {{ result.description }}</li>
+            <h3 class="text-xl font-bold text-white mb-2">{{ result.name }}</h3>
+            <div class="text-gray-500 font-italic pb-2">{{ result.tagline }}</div>
+            <ul class="list-none list-inside text-gray-400">
+                <li><span class="font-bold">ABV:</span> <span class="text-orange-500">{{ result.abv }}</span></li>
+                <li><div class="font-bold pt-2">{{ result.description }}</div></li>
             </ul>
-
-            <div class="mt-2">
+            <div class="mt-4">
                 <p class="text-gray-300 font-bold">Food Pairings:</p>
-                <ul class="list-disc list-inside text-gray-400">
+                <ul class="list-disc list-inside text-gray-400 mt-2">
                     <li v-for="foodItem in result.food_pairing" :key="foodItem">{{ foodItem }}</li>
                 </ul>
             </div>

@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import SearchResultCard from "@/components/BeerComponents/SearchResultCard.vue";
+import SearchResultCard from "@/Components/Search/SearchResultCard.vue";
 
 export default {
     components: {
