@@ -121,23 +121,11 @@ Integrated the API with a punkapi config, created a service and an API controlle
 Set up feature tests to check unauth and authorised access to the API to see it working 
 - also created a stub of data to crosscheck the response against the API response
 
+FRONTEND 
 
-
-
-
-**TODO:
-API Integration - Add a service and a config and a controller to handle the API requests
-Fix the models and saving data
-Unit tests for the models and API controllers
-Front end - search feature, display the data, error handling, filtering, pagination**
-
-Install guzzle or axios and pest for testing - composer require guzzlehttp/guzzle pestphp/pest --dev
-Bonus would be to create a filtering design pattern to filter these by ID or Name on the API endpoint
-
-Front end: 
-We can then start to build the front end, using Vue and Vite and Tailwind CSS
-Search feature - we can use the API to search for the data we need
-Then we can start to build the scaffold for the application, and start to build the components and views for the application.
-Error handling
-
-
+set up the front end to render the data from the API and display it 
+- created a component to display the beers and a search bar to filter the beers
+- Kept it simple with a card to display the beer details 
+- added a loading spinner to show when the data is being fetched
+- inertia and axios to handle the requests and the data being passed to the front end
+- refactored the code to make it more readable and maintainable

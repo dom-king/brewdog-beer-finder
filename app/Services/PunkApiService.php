@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Http\Resources\BeerResource;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Http;
 
 class PunkApiService
@@ -16,23 +18,31 @@ class PunkApiService
     /**
      * Get all beers
      *
-     * @return array
+     * @return AnonymousResourceCollection
      */
-    public function getBeers(): array
+    public function getBeers(): AnonymousResourceCollection
     {
         $response = Http::get($this->baseUrl . 'beers');
-        return $response->json();
+        $beers = $response->json();
+
+        return BeerResource::collection($beers);
     }
 
     /**
-     * Get a beer by id
+     * Search for beers based on a filter and search term
      *
-     * @param int $id
+     * @param string $filter
+     * @param string $searchTerm
      * @return array
      */
-    public function getBeerById($id): array
+    public function searchBeers(string $filter, string $searchTerm): array
     {
-        $response = Http::get($this->baseUrl . "beers/{$id}");
-        return $response->json();
+        $response = Http::get($this->baseUrl . 'beers/', [
+            $filter => $searchTerm,
+        ]);
+
+        $data = $response->json();
+
+        return $data;
     }
 }

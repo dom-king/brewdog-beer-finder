@@ -1,11 +1,9 @@
 <script setup>
 import { ref } from 'vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/vue3';
 
 const showingNavigationDropdown = ref(false);
 </script>
@@ -14,14 +12,12 @@ const showingNavigationDropdown = ref(false);
     <div>
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             <nav class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
-                <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
                         <div class="flex">
-                            <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Search for Beers
+                                    Beer Directory
                                 </NavLink>
                             </div>
                         </div>
@@ -55,7 +51,7 @@ const showingNavigationDropdown = ref(false);
                                     </template>
 
                                     <template #content>
-                                        <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
+                                        <DropdownLink :href="route('profile.edit')"> Edit Profile </DropdownLink>
                                         <DropdownLink :href="route('logout')" method="post" as="button">
                                             Log Out
                                         </DropdownLink>
