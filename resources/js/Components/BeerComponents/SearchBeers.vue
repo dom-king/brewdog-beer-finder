@@ -1,16 +1,26 @@
 <template>
     <div class="mt-4 flex items-center justify-center">
-        <div class="bg-blue-950 p-8 shadow-md rounded-md w-96">
+        <div class="w-full sm:max-w-md mt-6 px-6 py-4 pb-8 bg-blue-950 dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
 
-            <label for="filter" class="block mb-2 text-white">Select filter:</label>
+            <InputLabel for="filter" value="Select filter" class="block mb-2 text-white" />
+
             <select v-model="selectedFilter" id="filter" class="w-full border p-2 mb-4">
                 <option v-for="filter in filters" :key="filter" :value="filter">{{ filter }}</option>
             </select>
 
-            <label for="search" class="block mb-2 text-white">Search term:</label>
-            <input v-model="searchTerm" id="search" class="w-full border p-2 mb-4" />
+            <InputLabel for="search" value="Search term" class="block mb-2 text-white" />
 
-            <button @click="search" class="w-full bg-blue-500 text-white mt-4 p-4 rounded-md">Search</button>
+            <TextInput
+                id="search"
+                class="w-full border p-2 mb-4"
+                v-model="searchTerm"
+            />
+
+            <SecondaryButton @click="search" class="w-full text-white mt-4 p-4 rounded-md">Search</SecondaryButton>
+
+            <div v-if="searching && searchResults.length === 0" class="text-white mt-4">
+                No results found.
+            </div>
         </div>
     </div>
 
@@ -19,9 +29,15 @@
 
 <script>
 import SearchResults from '@/Components/BeerComponents/SearchResults.vue';
+import InputLabel from "@/Components/InputLabel.vue";
+import TextInput from "@/Components/TextInput.vue";
+import SecondaryButton from "@/Components/SecondaryButton.vue";
 
 export default {
     components: {
+        SecondaryButton,
+        TextInput,
+        InputLabel,
         SearchResults,
     },
     data() {
@@ -30,6 +46,7 @@ export default {
             selectedFilter: 'ID',
             searchTerm: '',
             searchResults: [],
+            searching: false,
         };
     },
     methods: {
@@ -41,8 +58,6 @@ export default {
                         search: this.searchTerm,
                     },
                 });
-
-                console.log('API Response:', response.data);
 
                 if (response && response.data && response.data.searchResults) {
                     this.searchResults = response.data.searchResults;

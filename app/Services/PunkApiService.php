@@ -38,7 +38,7 @@ class PunkApiService
     public function searchBeers(string $filter, string $searchTerm): array
     {
         $response = Http::get($this->baseUrl . 'beers/', [
-            $filter => $searchTerm,
+            'beer_' . $filter => $searchTerm,
         ]);
 
         $data = $response->json();

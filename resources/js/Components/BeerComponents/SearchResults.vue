@@ -1,9 +1,8 @@
 <template>
     <div class="mt-8 pb-8">
-        <div class="w-full md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto"> <!-- Adjust the width classes accordingly -->
+        <div class="w-full md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
             <div v-if="searchResults.length > itemsPerPage" class="flex justify-between mb-6 items-center">
                 <button @click="prevPage" :disabled="currentPage === 1" class="text-white">
-                    <!-- Left arrow icon (you can replace it with your preferred icon) -->
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -23,7 +22,6 @@
                 <span class="text-white">{{ currentPage }} / {{ totalPages }}</span>
 
                 <button @click="nextPage" :disabled="currentPage === totalPages" class="text-white">
-                    <!-- Right arrow icon (you can replace it with your preferred icon) -->
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -81,6 +79,7 @@ export default {
         return {
             itemsPerPage: 4,
             currentPage: 1,
+            isLoading: false,
         };
     },
     computed: {

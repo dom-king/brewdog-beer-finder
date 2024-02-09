@@ -11,7 +11,7 @@ use Inertia\Response;
 
 class BeerController extends Controller
 {
-    protected $punkApiService;
+    protected PunkApiService $punkApiService;
 
     /**
      * Create a new controller instance.
@@ -36,19 +36,6 @@ class BeerController extends Controller
     }
 
     /**
-     * Get a beer by id
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function show($id): Response
-    {
-        return Inertia::render('Beers/Show', [
-            'beer' => $this->punkApiService->getBeerById($id),
-        ]);
-    }
-
-    /**
      * Search for beers based on a filter and search term
      *
      * @param Request $request
@@ -68,9 +55,7 @@ class BeerController extends Controller
 
         if ($filter === BeerFilter::ID->value && $searchTerm) {
             $beers = $this->filterById($beers, (int)$searchTerm);
-        }
-
-        if ($filter === BeerFilter::NAME->value && $searchTerm) {
+        } else if ($filter === BeerFilter::NAME->value && $searchTerm) {
             $beers = $this->filterByName($beers, (string)$searchTerm);
         }
 
@@ -99,12 +84,12 @@ class BeerController extends Controller
      */
     private function filterByName(array $beers, string $searchTerm): array
     {
-        $pattern = '/' . preg_quote($searchTerm, '/') . '/i';
+        $pattern = '/' . str_replace(['\\', ':'], ['\\\\', ':'], preg_quote($searchTerm, '/')) . '/i';
+
         $filteredBeers = collect($beers)->filter(function ($beer) use ($pattern) {
             return preg_match($pattern, $beer['name']);
         })->values();
 
         return $filteredBeers->all();
     }
-
 }
