@@ -103,7 +103,7 @@ We can now begin to investigate the API and how it responds, and how we can use 
 Updated the registration to take access tokens for sanctum against the user and store them in the database
 
 
-Create the model and migration for the beers - ideally we want to split beers up and take what we need with relationships
+Create the model and migration for the beers - ideally we want to split beers up and take what we need with relationships (ingredients, food pairing, volume etc) 
 php artisan make:model Beers -m etc.
 
 ----- 
@@ -136,11 +136,12 @@ set up the front end to render the data from the API and display it
 TODO 
 --------- 
 
-Front end work (random?)
+FRI 
+
 Models and seeders - beer/food relationships
-Docker - set up the application to run in a container
-Docs and clean up
 
 
+Docs and clean up code FE & BE
 Tests - unit and feature
 service, controller, model, front end tests
+Docker - set up the application to run in a container

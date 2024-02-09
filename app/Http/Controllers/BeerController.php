@@ -29,7 +29,7 @@ class BeerController extends Controller
      *
      * @return JsonResponse|Response
      */
-    public function index() : JsonResponse|Response
+    public function index(): JsonResponse|Response
     {
         try {
             return Inertia::render('Beers/Index', [

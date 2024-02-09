@@ -20,7 +20,7 @@ class PunkApiService
      *
      * @return mixed
      */
-    public function getBaseUrl() : mixed
+    public function getBaseUrl(): mixed
     {
         return $this->baseUrl;
     }
