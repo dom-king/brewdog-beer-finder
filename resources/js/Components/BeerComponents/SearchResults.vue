@@ -40,7 +40,6 @@
             </div>
         </div>
 
-        <!-- Show loading spinner if data is being fetched -->
         <div v-if="isLoading" class="flex justify-center items-center h-24">
             <div class="animate-spin rounded-full border-t-4 border-blue-500 border-opacity-25 h-12 w-12"></div>
         </div>
@@ -53,10 +52,6 @@
                     :result="result"
                     class="w-full md:w-1/3 px-4 mb-4"
                 />
-            </div>
-
-            <div v-else class="text-white text-center">
-                No results found.
             </div>
         </div>
     </div>
@@ -90,6 +85,12 @@ export default {
             const start = (this.currentPage - 1) * this.itemsPerPage;
             const end = start + this.itemsPerPage;
             return this.searchResults.slice(start, end);
+        },
+    },
+    watch: {
+        searchResults() {
+            // Reset currentPage to 1 whenever searchResults change
+            this.currentPage = 1;
         },
     },
     methods: {
