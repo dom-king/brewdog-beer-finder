@@ -19,12 +19,7 @@ import SearchBeers from "@/Components/SearchBeers.vue";
 </template>
 
 <script>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-
 export default {
-    components: {
-        AuthenticatedLayout,
-    },
     name: 'DashboardPage',
 };
 </script>

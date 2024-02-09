@@ -55,7 +55,7 @@ class BeerController extends Controller
 
         if ($filter === BeerFilter::ID->value && $searchTerm) {
             $beers = $this->filterById($beers, (int)$searchTerm);
-        } else if ($filter === BeerFilter::NAME->value && $searchTerm) {
+        } elseif ($filter === BeerFilter::NAME->value && $searchTerm) {
             $beers = $this->filterByName($beers, (string)$searchTerm);
         }
 

@@ -127,5 +127,7 @@ set up the front end to render the data from the API and display it
 - created a component to display the beers and a search bar to filter the beers
 - Kept it simple with a card to display the beer details 
 - added a loading spinner to show when the data is being fetched
+- Error handling
 - inertia and axios to handle the requests and the data being passed to the front end
 - refactored the code to make it more readable and maintainable
+- One page for faster performance and to keep it simple
