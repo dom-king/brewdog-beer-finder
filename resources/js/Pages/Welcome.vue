@@ -65,12 +65,12 @@ defineProps({
                             </div>
 
                             <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Technical Stack</h2>
-
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Laravel has wonderful documentation covering every aspect of the framework. Whether you
-                                are a newcomer or have prior experience with Laravel, we recommend reading our
-                                documentation from beginning to end.
+                                <strong>Backend:</strong> Laravel Breeze, Laravel Sanctum for API authentication, Tailwind CSS for styling, Vue 3 for frontend components, and Vite for modern frontend build and development.
+                                <br><br>
+                                <strong>Code Standards:</strong> PHP adheres to PSR-12, enforced with PHP_CodeSniffer (vendor/bin/phpcs for checks, vendor/bin/phpcbf for fixes). JavaScript follows Airbnb code standards (npm run lint), and tests are conducted with Pest (php artisan test).
                             </p>
+
                         </div>
                     </div>
 
@@ -96,12 +96,15 @@ defineProps({
                                 </svg>
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">PunkAPI V2 APIo</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Task Approach</h2>
 
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript
-                                development. Check them out, see for yourself, and massively level up your development
-                                skills in the process.
+                                Integrated the Punk API using a dedicated config, and implemented a service and controller to manage API requests.
+                                Utilised create or update operations when searching for beers to ensure an up-to-date local database.
+                                Conducted feature tests for both unauthorised and authorised API access.
+                                On the frontend, set up a component to display beers with a search form, leveraging Inertia, Axios, and Vue.js for streamlined interactions.
+                                Implemented a loading spinner and error handling for enhanced user experience, while refactoring code for readability.
+                                Adopted a one-page design for improved performance.
                             </p>
                         </div>
                     </div>
