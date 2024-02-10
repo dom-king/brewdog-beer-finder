@@ -113,7 +113,7 @@ class BeerController extends Controller
      * @param array $beerData
      * @throws Exception
      */
-    private function insertOrUpdateBeer(array $beerData) : void
+    private function insertOrUpdateBeer(array $beerData): void
     {
         try {
             Beer::updateOrInsert(
