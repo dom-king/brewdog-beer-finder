@@ -2,134 +2,98 @@
 <a href="https://github.com/dom-king/brewdog-beer-finder"><img src="https://i.ibb.co/G0Vv9dj/BEER-removebg-preview.png" alt="BEER-removebg-preview"></a>
 </p>
 
-## About Brewdog Beer Finder
+# BrewDog Beer Finder
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+*BrewDog Beer Finder* is a web application designed for beer enthusiasts to explore and discover a diverse collection of craft beers. The application leverages the BrewDog Punk API to provide detailed information about various beers, including their names, taglines, brewing details, and flavor profiles.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. **Beer Catalog:** Access an extensive catalog of craft beers, each accompanied by a rich set of details, such as alcohol by volume (ABV), International Bitterness Units (IBU), and food pairings.
 
-## Learning Laravel
+2. **Search and Filter:** Utilise a robust search and filter functionality to find specific beers based on parameters like beer ID, name, or specific characteristics.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. **User Authentication:** Enjoy a personalised experience by creating an account and logging in. Authenticated users can save favorite beers, contribute reviews, and receive personalised recommendations.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+4. **Exception Handling:** The app is equipped with robust error handling to gracefully manage exceptions, ensuring a smooth user experience even in case of unexpected issues.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. **Integration with External APIs:** Seamlessly integrate with external APIs, such as the BrewDog Punk API, to fetch real-time data about a vast selection of craft beers.
 
-## Laravel Sponsors
+6. **User-Friendly Interface:** Benefit from an intuitive and user-friendly interface designed to enhance the beer exploration experience. The clean layout and straightforward navigation make it easy for users to discover new and exciting brews.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Prerequisites
 
-### Premium Partners
+Before you begin, make sure you have the following installed on your machine:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- [Composer](https://getcomposer.org/)
+- [Node.js and npm](https://nodejs.org/)
+- [DBngin](https://dbngin.com/) for local database management
+- [PHP 8.2](https://www.php.net/)
 
-## Contributing
+## Setup
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Follow these steps to set up and run the BrewDog Beer Explorer application locally:
 
-## Code of Conduct
+1. **Clone the Repository:**
+   ```bash
+    git clone https://github.com/dom-king/brewdog-beer-finder.git
+    ```
+   
+2. **Install PHP Dependencies:**
+   ```bash
+    cd brewdog-beer-explorer
+    composer install
+    ```
+   
+3. **Install JavaScript Dependencies:**
+   ```bash
+    npm install
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Start Application
 
-## Security Vulnerabilities
+Update Environment Variables:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Create a copy of the .env.example file and save it as .env.
+Update the .env file with your local database details (DB_DATABASE, DB_USERNAME, DB_PASSWORD).
+- I used a Macbook so I set up DBngin for local set up
 
-## License
+1. **Run the Application:**
+   ```bash
+    php artisan serve
+    npm run dev
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. **Run Migrations and Seed the Database:**
+   ```bash
+    php artisan migrate
+    php artisan db:seed
+   ```
 
+### Running Tests
 
+1. **Standard PHPUnit Tests:**
+   ```bash
+    php artisan test
+   ```
 
+2. **CodeSniffer:**
+   ```bash
+    vendor/bin/phpcs
+   ```
+   
+3. **Lint JavaScript:**
+   ```bash
+    npm run lint
+   ```
 
+### Contributing
 
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
+#### Future Work
 
-
-####
-
-Tech Stack 
-
-Set this up with Laravel Breeze to scaffold the application for the front end and back end - Authentication, Tailwind CSS, Vue 3, Vite, Laravel Sanctum
-
-CODE STANDARDS
-
-- PHP - PSR-12 - PHP_CodeSniffer - vendor/bin/phpcs to run and vendor/bin/phpcbf to fix errors
-- JS - Airbnb code standards - npm run lint 
-- TESTS - Pest Run tests -  php artisan test
-
-Set up Notes/Tackling the task 
-
-php artisan serve to run the application and npm run dev to run the front end
-DB - using DBngin for local development with MySQL 8.0.25 and TablePlus for the GUI
-Set up your own local DB and update the .env file with the correct DB details - DB_DATABASE, DB_USERNAME, DB_PASSWORD
-npm install to install the node modules
-
-**^ this can be dockerised, if time will do this** docker-compose up --build -d to run the application and docker-compose down to stop the containers
-
-Configure the API so that Vite can access it, overriding the application so that we can see a vue component on the front end working correctly
-Vite is a modern frontend build tool that provides an extremely fast development environment and bundles your code for production. It's a part of the Vue 3 ecosystem and is used to build Vue 3 applications.
-
-First to tackle the login authentication with unit tests - PHP side so we have an application to work with (Laravel Blast for speed - why re-invent the wheel here)
-We can now begin to investigate the API and how it responds, and how we can use it to build the scaffold.
-Updated the registration to take access tokens for sanctum against the user and store them in the database
-
-
-Create the model and migration for the beers - ideally we want to split beers up and take what we need with relationships (ingredients, food pairing, volume etc) 
-php artisan make:model Beers -m etc.
-
------ 
-Beers
-(of course can separate concerns for Volume and Food Pairing but for this task we can keep it simple)
-
-php artisan migrate 
-php artisan migrate:refresh --seed to refresh the database and seed the data
-Set up this for testing so I can check the data stores correctly
-
-# Brewdog Beer Finder
-API - https://punkapi.com/documentation/v2
-
-Integrated the API with a punkapi config, created a service and an  controller to handle the API requests
-Did a create or update when searching for beers to populate the DB - this is a simple way to handle the data and keep it up to date (prefer job queues for this)
-Set up feature tests to check unauth and authorised access to the API to see it working 
-- also created a stub of data to crosscheck the response against the API response
-
-FRONTEND 
-
-set up the front end to render the data from the API and display it 
-- created a component to display the beers and a search bar to filter the beers
-- Kept it simple with a card to display the beer details 
-- added a loading spinner to show when the data is being fetched
-- Error handling
-- inertia and axios to handle the requests and the data being passed to the front end
-- refactored the code to make it more readable and maintainable
-- One page for faster performance and to keep it simple
-
-
-
-TODO 
-----------------
-
-Tests - unit and feature - service, controller, model, front end tests (best I can do with the time I have)
-Docs and clean up code FE & BE - double check the code and the comments and validation of the data
+- Artisan commands to handle the API requests and store the data in the DB
+- Job queues to handle the data and keep it up to date
+- Extend the search functionality - Builder Sieve pattern for filtering easily
+- Component testing - Jest or Storybook for UI design Components
+- Dockerise the application
