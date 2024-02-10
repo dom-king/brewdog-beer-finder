@@ -1,10 +1,10 @@
 <template>
-    <div class="bg-gray-800 p-4 mb-4 rounded-md flex items-center">
-        <div class="flex-shrink-0 mr-4">
-            <img :src="result.image_url" alt="Beer Image" class="rounded-md" style="width: 50%; height: 50%;">
+    <div class="bg-gray-800 p-4 mb-4 rounded-md flex flex-col sm:flex-row items-center p-10">
+        <div class="flex-shrink-0 mb-4 sm:mb-0 sm:mr-4 sm:ml-4">
+            <img :src="result.image_url" alt="Beer Image" class="rounded-md" style="width: 100%; max-width: 200px; height: auto;">
         </div>
 
-        <div>
+        <div class="ml-6">
             <h3 class="text-xl font-bold text-white mb-2">{{ result.name }}</h3>
             <div class="text-gray-500 font-italic pb-2">{{ result.tagline }}</div>
             <ul class="list-none list-inside text-gray-400">
@@ -20,6 +20,7 @@
         </div>
     </div>
 </template>
+
 
 <script>
 export default {

@@ -17,10 +17,11 @@
                 @keydown.enter="search"
             />
 
-            <div class="flex flex-col-reverse md:flex-row justify-end">
+            <div class="flex flex-col md:flex-row justify-end">
                 <InputLabel for="hideKegs" value="Hide Kegs" class="block text-white md:mr-2" />
-                <CheckboxComponent v-model="hideKegs" id="hideKegs" @update:checked="filterResults" />
+                <CheckboxComponent v-model="hideKegs" id="hideKegs" class="mt-1 mb-2" @update:checked="filterResults" />
             </div>
+
 
             <primary-button @click="search" class="w-full text-white mt-4 p-4 rounded-md">Search</primary-button>
 

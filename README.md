@@ -140,4 +140,3 @@ TODO
 
 Docs and clean up code FE & BE - double check the code and the comments and validation of the data
 Tests - unit and feature - service, controller, model, front end tests (best I can do with the time I have)
-Docker - set up the application to run in a container - have a look if need be
