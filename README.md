@@ -31,7 +31,7 @@ Before you begin, make sure you have the following installed on your machine:
 
 ## Setup
 
-Follow these steps to set up and run the BrewDog Beer Explorer application locally:
+Follow these steps to set up and run the BrewDog Beer Finder application locally:
 
 1. **Clone the Repository:**
    ```bash
@@ -40,7 +40,7 @@ Follow these steps to set up and run the BrewDog Beer Explorer application local
    
 2. **Install PHP Dependencies:**
    ```bash
-    cd brewdog-beer-explorer
+    cd brewdog-beer-finder
     composer install
     ```
    
