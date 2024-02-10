@@ -117,7 +117,8 @@ Set up this for testing so I can check the data stores correctly
 # Brewdog Beer Finder
 API - https://punkapi.com/documentation/v2
 
-Integrated the API with a punkapi config, created a service and an API controller to handle the API requests
+Integrated the API with a punkapi config, created a service and an  controller to handle the API requests
+Did a create or update when searching for beers to populate the DB - this is a simple way to handle the data and keep it up to date (prefer job queues for this)
 Set up feature tests to check unauth and authorised access to the API to see it working 
 - also created a stub of data to crosscheck the response against the API response
 
@@ -133,15 +134,11 @@ set up the front end to render the data from the API and display it
 - One page for faster performance and to keep it simple
 
 
+
 TODO 
---------- 
+----------------
 
-FRI 
-
-Models and seeders - beer/food relationships
-
-
+Models and seeders - beer/food relationships, volume, ingredients
 Docs and clean up code FE & BE
-Tests - unit and feature
-service, controller, model, front end tests
-Docker - set up the application to run in a container
+Tests - unit and feature - service, controller, model, front end tests
+Docker - set up the application to run in a container - have a look if need be

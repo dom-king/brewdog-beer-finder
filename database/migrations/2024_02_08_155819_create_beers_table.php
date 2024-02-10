@@ -15,7 +15,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('beers')) {
             Schema::create('beers', function (Blueprint $table) {
-                $table->uuid('id')->primary();
+                $table->id()->unique();
                 $table->string('name');
                 $table->string('tagline');
                 $table->string('first_brewed');

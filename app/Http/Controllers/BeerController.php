@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Enums\BeerFilter;
+use App\Models\Beer;
 use App\Services\PunkApiService;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -35,7 +38,7 @@ class BeerController extends Controller
             return Inertia::render('Beers/Index', [
                 'beers' => $this->punkApiService->getBeers(),
             ]);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error('Error fetching beers: ' . $e->getMessage());
             return response()->json(['error' => 'Internal Server Error'], 500);
         }
@@ -47,6 +50,7 @@ class BeerController extends Controller
      * @param Request $request
      * @param PunkApiService $punkApiService
      * @return JsonResponse
+     * @throws Exception
      */
     public function search(Request $request, PunkApiService $punkApiService): JsonResponse
     {
@@ -63,6 +67,10 @@ class BeerController extends Controller
             $beers = $this->filterById($beers, (int)$searchTerm);
         } elseif ($filter === BeerFilter::NAME->value && $searchTerm) {
             $beers = $this->filterByName($beers, (string)$searchTerm);
+        }
+
+        foreach ($beers as $beer) {
+            $this->insertOrUpdateBeer($beer);
         }
 
         return response()->json(['searchResults' => $beers]);
@@ -97,5 +105,34 @@ class BeerController extends Controller
         })->values();
 
         return $filteredBeers->all();
+    }
+
+    /**
+     * Insert or update a beer with timestamps.
+     *
+     * @param array $beerData
+     * @throws Exception
+     */
+    private function insertOrUpdateBeer(array $beerData) : void
+    {
+        try {
+            Beer::updateOrInsert(
+                ['id' => $beerData['id']],
+                [
+                    'name'         => $beerData['name'],
+                    'tagline'      => $beerData['tagline'],
+                    'first_brewed' => $beerData['first_brewed'],
+                    'description'  => $beerData['description'],
+                    'abv'          => $beerData['abv'],
+                    'ibu'          => $beerData['ibu'],
+                    'image_url'    => $beerData['image_url'],
+                    'food_pairing' => json_encode($beerData['food_pairing']),
+                    'created_at'   => Carbon::now()->format('Y-m-d H:i:s'),
+                    'updated_at'   => Carbon::now()->format('Y-m-d H:i:s'),
+                ]
+            );
+        } catch (Exception $exception) {
+            Log::error('Error updating/inserting beer: ' . $exception->getMessage());
+        }
     }
 }

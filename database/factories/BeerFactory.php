@@ -14,7 +14,7 @@ class BeerFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => fake()->uuid(),
+            'id' => fake()->unique()->randomNumber(),
             'name' => fake()->sentence(),
             'tagline'      => fake()->sentence(),
             'first_brewed' => fake()->date('m/Y', '04/2007'),
