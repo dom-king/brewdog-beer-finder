@@ -37,13 +37,10 @@ class PunkApiServiceTest extends TestCase
      */
     public function testGetBeersReturnsAnonymousResourceCollection(): void
     {
-        // Create a mock of the Beer model
         $beerModelMock = Mockery::mock(Beer::class);
 
-        // Mock the 'all' method on the model to return an empty collection
         $beerModelMock->shouldReceive('all')->andReturn(collect());
 
-        // Bind the mocked model instance to the IoC container
         $this->app->instance(Beer::class, $beerModelMock);
 
         $result = $this->punkApiService->getBeers();

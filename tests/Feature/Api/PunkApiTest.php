@@ -48,7 +48,7 @@ class PunkApiTest extends TestCase
     /**
      * @return void
      */
-    public function testUnauthorizedUserCannotAccessUserEndpoint(): void
+    public function testUnauthorisedUserCannotAccessUserEndpoint(): void
     {
         $response = $this->getJson('/api/user');
 
@@ -58,12 +58,10 @@ class PunkApiTest extends TestCase
     /**
      * @return void
      */
-    public function testUnauthorizedUserRequestsToPunkApi(): void
+    public function testUnauthorisedUserRequestsToPunkApi(): void
     {
-        // Make a request to the Punk API without authentication
         $response = $this->getJson('/api/beers');
 
-        // Ensure the response status is 401 Unauthorized
         $response->assertUnauthorized();
     }
 

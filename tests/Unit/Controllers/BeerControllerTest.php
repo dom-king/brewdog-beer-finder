@@ -43,7 +43,6 @@ class BeerControllerTest extends TestCase
      */
     public function testBeerIndexReturnsJsonResponse(): void
     {
-        // Mock the response as an instance of AnonymousResourceCollection
         $this->mockedPunkApiService
             ->shouldReceive('getBeers')
             ->once()
