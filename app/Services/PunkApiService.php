@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Http\Resources\BeerResource;
+use App\Models\Beer;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Http;
 
@@ -32,9 +33,7 @@ class PunkApiService
      */
     public function getBeers(): AnonymousResourceCollection
     {
-        $response = Http::get($this->baseUrl . 'beers');
-        $beers = $response->json();
-
+        $beers = Beer::all();
         return BeerResource::collection($beers);
     }
 

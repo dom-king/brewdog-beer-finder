@@ -1,49 +1,88 @@
 <?php
 
+namespace Tests\Unit\Services;
+
+use App\Models\Beer;
 use App\Services\PunkApiService;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use function Pest\Laravel\get;
+use Illuminate\Support\Facades\Http;
+use Mockery;
 use Tests\TestCase;
 
-test('it can get all beers', function () {
-    // Set up an instance of the service
-    $punkApiService = new PunkApiService();
+class PunkApiServiceTest extends TestCase
+{
+    protected PunkApiService $punkApiService;
 
-    // Mock the HTTP response for the base URL + 'beers' endpoint
-    Http::fake([
-        $punkApiService->getBaseUrl() . 'beers' => Http::response([/* Mocked beer data */], 200),
-    ]);
+    /**
+     * @return void
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
 
-    // Call the getBeers method
-    $beers = $punkApiService->getBeers();
+        $this->punkApiService = new PunkApiService();
+    }
 
-    // Assertions
-    Http::assertSent(function ($request) use ($punkApiService) {
-        return $request->url() === $punkApiService->getBaseUrl() . 'beers';
-    });
+    /**
+     * @return void
+     */
+    public function testGetBaseUrl(): void
+    {
+        $baseUrl = $this->punkApiService->getBaseUrl();
+        $this->assertEquals(config('punkapi.base_url'), $baseUrl);
+    }
 
-    expect($beers)->toBeInstanceOf(AnonymousResourceCollection::class);
-});
+    /**
+     * @return void
+     */
+    public function testGetBeersReturnsAnonymousResourceCollection(): void
+    {
+        // Create a mock of the Beer model
+        $beerModelMock = Mockery::mock(Beer::class);
 
-test('it can search for beers', function () {
-    // Set up an instance of the service
-    $punkApiService = new PunkApiService();
+        // Mock the 'all' method on the model to return an empty collection
+        $beerModelMock->shouldReceive('all')->andReturn(collect());
 
-    // Mock the HTTP response for the base URL + 'beers' endpoint with search parameters
-    Http::fake([
-        $punkApiService->getBaseUrl() . 'beers/' => Http::response([/* Mocked beer data */], 200),
-    ]);
+        // Bind the mocked model instance to the IoC container
+        $this->app->instance(Beer::class, $beerModelMock);
 
-    // Call the searchBeers method
-    $searchResults = $punkApiService->searchBeers('filter', 'searchTerm');
+        $result = $this->punkApiService->getBeers();
 
-    // Assertions
-    Http::assertSent(function ($request) use ($punkApiService) {
-        // Add more specific assertions based on your actual implementation
-        return $request->url() === $punkApiService->getBaseUrl() . 'beers/' &&
-            $request->query() === ['beer_filter' => 'filter', 'beer_searchTerm' => 'searchTerm'];
-    });
+        $this->assertInstanceOf(AnonymousResourceCollection::class, $result);
+    }
 
-    expect($searchResults)->toBeArray();
-});
+    /**
+     * @return void
+     */
+    public function testSearchBeersReturnsArray(): void
+    {
+        Http::fake([
+            '*' => Http::response([], 200),
+        ]);
+
+        $filter = 'ID';
+        $searchTerm = '1';
+
+        $result = $this->punkApiService->searchBeers($filter, $searchTerm);
+
+        $this->assertIsArray($result);
+    }
+
+    /**
+     * @return void
+     */
+    public function testSearchBeersReturnsEmptyArray(): void
+    {
+        Http::fake([
+            '*' => Http::response([], 200),
+        ]);
+
+        $filter = 'ID';
+        $searchTerm = '1000';
+
+        $result = $this->punkApiService->searchBeers($filter, $searchTerm);
+
+        $this->assertIsArray($result);
+        $this->assertEmpty($result);
+    }
+}

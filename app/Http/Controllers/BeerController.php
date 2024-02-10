@@ -10,7 +10,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
-use Inertia\Inertia;
 use Inertia\Response;
 
 class BeerController extends Controller
@@ -35,7 +34,7 @@ class BeerController extends Controller
     public function index(): JsonResponse|Response
     {
         try {
-            return Inertia::render('Beers/Index', [
+            return response()->json([
                 'beers' => $this->punkApiService->getBeers(),
             ]);
         } catch (Exception $e) {
