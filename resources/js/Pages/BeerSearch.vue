@@ -1,6 +1,5 @@
 <template>
     <div class="flex items-center justify-center">
-
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 pb-8 bg-blue-950 dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
             <InputLabel for="filter" value="Select filter" class="block mb-2 text-white" />
 
@@ -21,7 +20,6 @@
                 <InputLabel for="hideKegs" value="Hide Kegs" class="block text-white md:mr-2" />
                 <CheckboxComponent v-model="hideKegs" id="hideKegs" class="mt-1 mb-2" @update:checked="filterResults" />
             </div>
-
 
             <primary-button @click="search" class="w-full text-white mt-4 p-4 rounded-md">Search</primary-button>
 
