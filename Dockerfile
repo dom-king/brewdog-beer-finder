@@ -9,7 +9,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Build the Laravel backend
-FROM php:8.0.2-apache
+FROM php:8.2-apache
 
 WORKDIR /var/www/html
 
@@ -26,8 +26,10 @@ RUN apt-get update \
 
 # Enable Apache modules
 RUN a2enmod rewrite
+RUN a2enmod ssl
 
 # Adjust ownership
+RUN chmod -R 755 storage bootstrap/cache
 RUN chown -R www-data:www-data /var/www/html
 
 # Enable the custom Apache configuration
