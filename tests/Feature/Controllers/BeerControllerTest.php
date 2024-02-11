@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Controllers;
+namespace Tests\Feature\Controllers;
 
 use App\Http\Controllers\BeerController;
 use App\Http\Resources\BeerResource;

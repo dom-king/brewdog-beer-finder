@@ -12,7 +12,7 @@
 
 2. **Search and Filter:** Utilise a robust search and filter functionality to find specific beers based on parameters like beer ID, name, or specific characteristics.
 
-3. **User Authentication:** Enjoy a personalised experience by creating an account and logging in. Authenticated users can save favorite beers, contribute reviews, and receive personalised recommendations.
+3. **User Authentication:** Enjoy a personalised experience by creating an account and logging in.
 
 4. **Exception Handling:** The app is equipped with robust error handling to gracefully manage exceptions, ensuring a smooth user experience even in case of unexpected issues.
 
